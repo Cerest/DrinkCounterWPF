@@ -57,7 +57,7 @@ namespace DrinkCounterWPF
 		/// <param name="e"></param>
 		private void BtnSubmit_Click(object sender, EventArgs e)
 		{
-			// We use the grpbox header as the status message, this resets it.
+			// We use the groupbox header as the status message, this resets it.
 			grpStatus.Header = string.Empty;
 
 			// Get the input and then clear the input text box
@@ -159,7 +159,7 @@ namespace DrinkCounterWPF
 			// By Default, the CAC stores the DoDID as a base 32, that by itself is a unique
 			// identifier and as such there's no need to convert it back into its base 10 equivalent
 			DataRow Person = datPeople.NewRow();
-			Person["DoDID32"] = strInput.Substring(8, 7);
+			Person["DoDID32"] = CalcProcess.GetRawDoDID(strInput);
 
 			// Try to find a person on the list with that DoDID number
 			DataRow PersonMatch = datPeople.Rows.Find(Person["DoDID32"]);

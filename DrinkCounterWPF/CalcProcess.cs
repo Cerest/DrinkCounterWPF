@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace DrinkCounterWPF
 {
-	internal static class CalcProcess
+	public static class CalcProcess
 	{
 		/// <summary>
 		///     Converts a string of a value of an arbitrary base into its base 10 form. We need to
@@ -22,6 +20,16 @@ namespace DrinkCounterWPF
 			return Enumerable.Range(0, intLength)
 							 .Select(position => GetValue(input[position]) * Math.Pow(inputBase, intLength - position - 1))
 							 .Sum();
+		}
+
+		/// <summary>
+		/// Grabs the RawDODID from a input scan
+		/// </summary>
+		/// <param name="input"></param>
+		/// <returns></returns>
+		public static string GetRawDoDID(string input)
+		{
+			return input.Substring(8, 7);
 		}
 
 		/// <summary>

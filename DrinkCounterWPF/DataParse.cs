@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.IO;
-using System.Text;
 using System.Windows;
 
 namespace DrinkCounterWPF
@@ -17,7 +15,7 @@ namespace DrinkCounterWPF
 		/// <summary>
 		///     File is small enough that we can save the information without using a DataReader/DataAdapter
 		/// </summary>
-		internal static void SaveData(DateTime DateOfProgram, int LimitDrinks, double HoursBeforeReset, int AgeReq, DataTable datPeople)
+		public static void SaveData(DateTime DateOfProgram, int LimitDrinks, double HoursBeforeReset, int AgeReq, DataTable datPeople)
 		{
 			try
 			{
@@ -45,7 +43,7 @@ namespace DrinkCounterWPF
 		///     File is small enough to load the information in memory without too much issue and
 		///     without using a DataReader/DataAdapter
 		/// </summary>
-		internal static void LoadFile(ref int LimitDrinks, ref double HoursBeforeReset, ref int AgeReq, ref DateTime DateOfProgram, ref DataTable datPeople)
+		public static void LoadFile(ref int LimitDrinks, ref double HoursBeforeReset, ref int AgeReq, ref DateTime DateOfProgram, ref DataTable datPeople)
 		{
 			try
 			{

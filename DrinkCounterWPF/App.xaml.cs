@@ -1,11 +1,9 @@
-﻿using System.Windows;
-
-namespace DrinkCounterWPF
+﻿namespace DrinkCounterWPF
 {
 	/// <summary>
 	/// Interaction logic for App.xaml
 	/// </summary>
-	public partial class App : Application
+	public sealed partial class App
 	{
 	}
 }
