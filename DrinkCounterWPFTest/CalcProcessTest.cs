@@ -16,15 +16,14 @@ namespace DrinkCounterWPFTest
 		{
 			// SETUP
 			const string inputString = "NG3EISKS1HC1QFEJohn                Smith                     B2OPAF00AMN   ME03BBPNBCRUJ";
-
-			string rawDoD = CalcProcess.GetRawDoDID(inputString);
+			string       rawDoD      = CalcProcess.GetRawDoDID(inputString);
 
 			// CALCULATION
-			double actualString = CalcProcess.ConvertToBase10(rawDoD, 32);
+			double actual = CalcProcess.ConvertToBase10(rawDoD, 32);
 
 			// VERIFY
-			const double expectedString = 1656809966;
-			Assert.AreEqual(expectedString, actualString);
+			const double expected = 1656809966;
+			Assert.AreEqual(expected, actual);
 		}
 	}
 
@@ -38,10 +37,10 @@ namespace DrinkCounterWPFTest
 		public void SaveDataTest()
 		{
 			// SETUP
-			DateTime  dateOfProgram    = DateTime.Now;
-			const int limitDrinks      = 4;
-			const int hoursBeforeReset = 12;
-			const int ageReq           = 21;
+			DateTime dateOfProgram    = DateTime.Now;
+			int      limitDrinks      = 4;
+			double   hoursBeforeReset = 12;
+			int      ageReq           = 21;
 
 			var peopleTable = new DataTable("People");
 			peopleTable.Columns.Add("DoDID32", typeof(string));
@@ -57,12 +56,16 @@ namespace DrinkCounterWPFTest
 			// SAVE THE DATA
 			DataParse.SaveData(dateOfProgram, limitDrinks, hoursBeforeReset, ageReq, peopleTable);
 
-			// Initialize the actual values
-			int actualLimit = 0;
 
+			DateTime dateOfProgramActual = DateTime.Now;
+			int      limitDrinksActual = 0;
+			double   hoursBeforeResetActual = 5;
+			int      ageReqActual = 85;
+			DataParse.LoadFile(ref limitDrinksActual, ref hoursBeforeResetActual, ref ageReqActual, ref dateOfProgramActual, ref peopleTable);
 
-			DataParse.LoadFile(ref actualLimit, ref hoursBeforeReset, ref int AgeReq, ref DateTime DateOfProgram, ref DataTable datPeople)
-
+			Assert.AreEqual(limitDrinksActual, limitDrinks);
+			Assert.AreEqual(hoursBeforeResetActual, hoursBeforeReset);
+			Assert.AreEqual(ageReqActual, ageReq);
 		}
 	}
 }

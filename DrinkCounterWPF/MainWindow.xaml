@@ -7,6 +7,7 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:s="clr-namespace:System;assembly=System.Runtime"
         mc:Ignorable="d"
+        FontSize="20"
         Width="400"
         Title="Drinking Counter" Background="{DynamicResource MaterialDesignDarkBackground}"
         MinHeight="290" MinWidth="400" ResizeMode="CanMinimize" SizeToContent="Height"
@@ -25,7 +26,7 @@
         <DockPanel VerticalAlignment="Top" Margin="10,10,10,0">
             <Button x:Name="btnSubmit" Content="Submit"
                     VerticalAlignment="Top" DockPanel.Dock="Right" HorizontalAlignment="Right" Click="BtnSubmit_Click" TabIndex="2" />
-            <TextBox x:Name="txtInput"
+            <PasswordBox x:Name="txtInput"
                      materialDesign:HintAssist.Hint="Scan Here"
                      Foreground="{DynamicResource MaterialDesignBody}"
                      VerticalAlignment="Top"
@@ -36,9 +37,9 @@
                   Margin="10,60,10,10" VerticalAlignment="Top">
             <DockPanel>
                 <materialDesign:PackIcon x:Name="icoStatus" Kind="BarcodeScan"
-                                         Width="125"
-                                         Height="125"
-                                         Foreground="{DynamicResource MaterialDesignLightBackground}" />
+                                         Width="146"
+                                         Height="145"
+                                         Foreground="{DynamicResource MaterialDesignLightBackground}" VerticalAlignment="Center" />
 
                 <StackPanel Margin="10,0,0,0">
                     <TextBox x:Name="txtAge"

@@ -61,7 +61,7 @@ namespace DrinkCounterWPF
 			grpStatus.Header = string.Empty;
 
 			// Get the input and then clear the input text box
-			string strInput = txtInput.Text;
+			string strInput = txtInput.Password;
 			txtInput.Clear();
 
 			// Clear any fields that are native to that user.
@@ -335,6 +335,7 @@ namespace DrinkCounterWPF
 									  : DrinksLeft.ToString();
 
 			ToggleIncrementButtons();
+			//txtDrinksInput.Focus();
 		}
 
 		/// <summary>
@@ -349,6 +350,7 @@ namespace DrinkCounterWPF
 									  : DrinksLeft.ToString();
 
 			ToggleIncrementButtons();
+			//txtDrinksInput.Focus();
 		}
 	}
 }
